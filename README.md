@@ -20,3 +20,6 @@
 ##### 10:50: Research React checkbox implementation
 * [Building a Checkbox Component with React and styled-components](href="https://medium.com/@colebemis/building-a-checkbox-component-with-react-and-styled-components-8d3aa1d826dd)
 * implement checkboxes in sample project
+
+##### 1:30: Start new sample project tutorial
+* [Build A Todo App with REACT|React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8)
