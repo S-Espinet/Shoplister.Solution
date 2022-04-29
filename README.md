@@ -1,3 +1,5 @@
+# Egg Basket App
+### Research & Planning Log
 #### Friday, 04/29  
 ##### 10:15: Write User Stories
 * **MVP User Stories**  
