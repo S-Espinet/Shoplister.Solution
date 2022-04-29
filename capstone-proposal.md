@@ -1,6 +1,6 @@
 **Name of Student:** Sarah Espinet 
   
-**Name of Project:** Good Groceries - shopping simplified
+**Name of Project:** Good Groceries - shopping simplified (tentative idea)
   
 **Project's Purpose of Goal** *(What will it do for users?)***:** Good Groceries will allow users to create a shopping list. They will have the ability to create items and organize them by store, as well as check off, delete, and update items.  
   
@@ -22,12 +22,13 @@
 * _extra styling_
 * _hosting_
 * _import items from other sites (Google shopping list, AllRecipes, etc.)_
-* _option to organize items by category (produce, dairy, etc.)  
+* _option to organize items by category (produce, dairy, etc.)_
+* _responsive display_  
 
 **What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?**
 
 * _Bootstrap_
-* _Google API, AllRecipes API_
-* __  
+* _Google API, AllRecipes API_  
 
-**Is there anything else you'd like your instructor to know?**
+**Is there anything else you'd like your instructor to know?**   
+	*There is a good chance I will need to change course and make a C#-based MVC application.*
