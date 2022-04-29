@@ -1,3 +1,4 @@
+#Egg Basket App
 ### Research & Planning Log
 #### Friday, 04/29  
 ##### 10:15: Write User Stories
@@ -18,3 +19,4 @@
 
 ##### 10:50: Research React checkbox implementation
 * [Building a Checkbox Component with React and styled-components](href="https://medium.com/@colebemis/building-a-checkbox-component-with-react-and-styled-components-8d3aa1d826dd)
+* implement checkboxes in sample project
