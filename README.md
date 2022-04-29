@@ -22,4 +22,5 @@
 * implement checkboxes in sample project
 
 ##### 1:30: Start new sample project tutorial
-* [Build A Todo App with REACT|React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8)
+* [Build A Todo App with REACT|React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8).  
+<!--video is > 1 hr long-->
