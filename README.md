@@ -1,4 +1,4 @@
-#Shoplister
+#Shoplister: A better shopping app
 ### Research & Planning Log
 #### Friday, 04/29  
 ##### 10:15: Write User Stories
@@ -30,6 +30,6 @@
 
 <br />
 #### Friday, 05/06
-##### 8:00: Review video tutorials
-* * [React State and Props | Learn React for Beginners Part 4](https://www.youtube.com/watch?v=dMH1_YtUTSQ)
-* * [Build A Todo App with REACT | React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8) 
+##### 8:00: Review/finish watching/applying video tutorials
+* [React State and Props | Learn React for Beginners Part 4](https://www.youtube.com/watch?v=dMH1_YtUTSQ)
+* [Build A Todo App with REACT | React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8) 
