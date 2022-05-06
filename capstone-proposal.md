@@ -1,6 +1,6 @@
 **Name of Student:** Sarah Espinet 
   
-**Name of Project:** Egg Basket App
+**Name of Project:** Shoplister
   
 **Project's Purpose of Goal** *(What will it do for users?)***:** Egg Basket App will allow users to create a shopping list. They will have the ability to create items and organize them by store, as well as check off, delete, and update items.  
   

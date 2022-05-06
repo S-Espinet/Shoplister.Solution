@@ -1,4 +1,4 @@
-#Egg Basket App
+#Shoplister
 ### Research & Planning Log
 #### Friday, 04/29  
 ##### 10:15: Write User Stories
