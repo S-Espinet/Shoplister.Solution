@@ -1,4 +1,4 @@
-# Egg Basket App
+#Egg Basket App
 ### Research & Planning Log
 #### Friday, 04/29  
 ##### 10:15: Write User Stories
@@ -22,8 +22,14 @@
 * implement checkboxes in sample project
 
 ##### 1:30: Start new sample project tutorial
-* [Build A Todo App with REACT | React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8).  
+* [Build A Todo App with REACT | React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8)  
 -video is > 1 hr long
 
 ##### 4:00: Video tutorial covering state, props, and hooks
-* [React State and Props | Learn React for Beginners Part 4](https://www.youtube.com/watch?v=dMH1_YtUTSQ)
+* [React State and Props | Learn React for Beginners Part 4](https://www.youtube.com/watch?v=dMH1_YtUTSQ).  
+
+<br />
+#### Friday, 05/06
+##### 8:00: Review video tutorials
+* * [React State and Props | Learn React for Beginners Part 4](https://www.youtube.com/watch?v=dMH1_YtUTSQ)
+* * [Build A Todo App with REACT | React Project For Beginners(FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8) 
