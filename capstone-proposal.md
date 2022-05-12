@@ -28,6 +28,7 @@
 **What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?**
 
 * _Bootstrap_
+* _Microsoft Azure - or- Firebase -or- other hosting service_
 * _Google API, AllRecipes API_  
 
 **Is there anything else you'd like your instructor to know?**   
