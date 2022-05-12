@@ -2,7 +2,9 @@
   
 **Name of Project:** Shoplister
   
-**Project's Purpose of Goal** *(What will it do for users?)***:** Egg Basket App will allow users to create a shopping list. They will have the ability to create items and organize them by store, as well as check off, delete, and update items.  
+**Project's Purpose of Goal** *(What will it do for users?)***:**   
+I have used Google's shopping list web app for a couple of years now. It's functional, but it allows duplicate items to be added. This is frustrating, so this is a shopping list app that won't allow duplicate entries.   
+Shoplister will allow users to create a shopping list. They will have the ability to create items and organize them by store, as well as check off, delete, and update items.  
   
 **List the absolute minimum features the project requires to meet this purpose or goal:**
 
@@ -32,4 +34,4 @@
 * _Google API, AllRecipes API_  
 
 **Is there anything else you'd like your instructor to know?**   
-	There is a good chance I will need to change course and make a C#-based MVC application.
+	I would have made a React.js - based application if I'd had more time to study React.
