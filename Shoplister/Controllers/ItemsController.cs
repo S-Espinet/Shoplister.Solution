@@ -46,5 +46,25 @@ namespace Shoplister.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Create(Item item)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      item.User = currentUser;
+      if (_db.Items.ItemName == item.ItemName)
+      {
+        _db.Treats.Add(treat);
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
   }
 }
