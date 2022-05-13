@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Shoplister.Models.Item
+
+<h2>Edit</h2>
+<hr>
+
+<h4>Edit this item: @Html.DisplayFor(model => model.ItemName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ItemId)
+
+  @Html.LabelFor(model => model.ItemName)
+  @Html.EditorFor(model => model.ItemName, new {require = "required"})
+  @Html.LabelFor(model => model.Notes)
+  @Html.EditorFor(model => model.Notes)
+
+  <input type="submit" class="btn btn-light" value="Save" />
+}
