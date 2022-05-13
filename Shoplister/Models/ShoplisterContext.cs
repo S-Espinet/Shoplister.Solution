@@ -10,9 +10,9 @@ namespace Shoplister.Models
 
     public ShoplisterContext(DbContextOptions options) : base(options) { }
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //   optionsBuilder.UseLazyLoadingProxies();
-    // }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+      optionsBuilder.UseLazyLoadingProxies();
+    }
   }
 }
