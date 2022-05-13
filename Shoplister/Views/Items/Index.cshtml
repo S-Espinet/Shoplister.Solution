@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Shoplister.Models;
+@model IEnumerable<Shoplister.Models.Item>
+
+<h1>Items for @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Item item in Model)
+    {
+      <li>
+        @Html.ActionLink($"{item.ItemName}", "Details", new { id = item.ItemId })
+      </li>
+    }
+  </ul>
+}
+else
+{
+  <h3>No items have been added yet!</h3>
+}
+
+<p>@Html.ActionLink("Add New Item", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
