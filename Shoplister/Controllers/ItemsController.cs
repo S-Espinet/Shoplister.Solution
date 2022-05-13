@@ -59,9 +59,13 @@ namespace Shoplister.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       item.User = currentUser;
-      if (_db.Items.ItemName == item.ItemName)
+      if (_db.Items.Where(dbItem => dbItem.ItemName == item.ItemName && dbItem.Checked == true).Any() == true) {
+        //set checked to false
+        _db.SaveChanges();
+      }
+      else
       {
-        _db.Treats.Add(treat);
+        _db.Items.Add(item);
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
