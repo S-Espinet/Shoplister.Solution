@@ -46,6 +46,7 @@ namespace Shoplister
       app.UseDeveloperExceptionPage();
       app.UseAuthentication();
       app.UseRouting();
+      app.UseAuthorization();
       app.UseEndpoints(routes =>
       {
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
