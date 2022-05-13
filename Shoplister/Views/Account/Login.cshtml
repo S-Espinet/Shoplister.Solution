@@ -17,4 +17,6 @@
   @Html.PasswordFor(m => m.Password)
 
   <input type="submit" value="Log In" class="btn btn-dark" />
+  <p>-OR-</p>
+  <button class="btn btn-dark">@Html.ActionLink("Register for an Account", "Register", "Account")</button>
 }
