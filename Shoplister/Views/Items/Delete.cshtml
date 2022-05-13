@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Shoplister.Models.Item
+
+<h3>Are you sure you want to delete this?</h3>
+
+@Html.DisplayNameFor(model => model.ItemName): @Html.DisplayFor(model => model.ItemName)
+@using (Html.BeginForm())
+{
+  <input type="submit" class="btn btn-light" value="Delete" />
+}
