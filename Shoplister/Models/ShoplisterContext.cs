@@ -8,7 +8,7 @@ namespace Shoplister.Models
     public DbSet<Store> Stores { get; set; }
     public DbSet<Item> Items { get; set; }
 
-
+    public DbSet<ItemStore> ItemStore { get; set; }
     public ShoplisterContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

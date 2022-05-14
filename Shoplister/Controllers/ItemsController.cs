@@ -71,5 +71,21 @@ namespace Shoplister.Controllers
       }
       return RedirectToAction("Index");
     }
+
+
+    public ActionResult Edit(int id)
+    {
+      var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      return View(thisItem);
+    }
+
+    [HttpPost]
+    public ActionResult Edit (Item item)
+    {
+      _db.Entry(item).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }

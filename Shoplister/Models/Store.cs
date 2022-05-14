@@ -6,11 +6,11 @@ namespace Shoplister.Models
   {
     public Store()
     {
-      this.Items = new HashSet<Item>();
+      this.JoinEntities = new HashSet<ItemStore>();
     }
 
     public int StoreId { get; set; }
     public string StoreName { get; set; }
-    public virtual ICollection<Item> Items { get; set; }
+    public virtual ICollection<ItemStore> JoinEntities { get; set; }
   }
 }

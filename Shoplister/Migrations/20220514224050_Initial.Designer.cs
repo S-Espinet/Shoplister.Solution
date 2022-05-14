@@ -9,8 +9,8 @@ using Shoplister.Models;
 namespace Shoplister.Migrations
 {
     [DbContext(typeof(ShoplisterContext))]
-    [Migration("20220513204235_Identity_ShoplisterContext")]
-    partial class Identity_ShoplisterContext
+    [Migration("20220514224050_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,19 +226,38 @@ namespace Shoplister.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("StoreId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("ItemId");
 
-                    b.HasIndex("StoreId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("Shoplister.Models.ItemStore", b =>
+                {
+                    b.Property<int>("ItemStoreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StoreId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ItemStoreId");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("ItemStore");
                 });
 
             modelBuilder.Entity("Shoplister.Models.Store", b =>
@@ -308,12 +327,6 @@ namespace Shoplister.Migrations
 
             modelBuilder.Entity("Shoplister.Models.Item", b =>
                 {
-                    b.HasOne("Shoplister.Models.Store", null)
-                        .WithMany("Items")
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Shoplister.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
@@ -321,9 +334,31 @@ namespace Shoplister.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Shoplister.Models.ItemStore", b =>
+                {
+                    b.HasOne("Shoplister.Models.Item", "Item")
+                        .WithMany("JoinEntities")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shoplister.Models.Store", "Store")
+                        .WithMany("JoinEntities")
+                        .HasForeignKey("StoreId");
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Store");
+                });
+
+            modelBuilder.Entity("Shoplister.Models.Item", b =>
+                {
+                    b.Navigation("JoinEntities");
+                });
+
             modelBuilder.Entity("Shoplister.Models.Store", b =>
                 {
-                    b.Navigation("Items");
+                    b.Navigation("JoinEntities");
                 });
 #pragma warning restore 612, 618
         }
