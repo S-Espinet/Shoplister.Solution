@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Shoplister.Models;
+using System;
 
 namespace Shoplister.Controllers
 {
@@ -35,6 +36,7 @@ namespace Shoplister.Controllers
     [HttpPost]
     public ActionResult Index (List<Item> myItems)
     {
+      Console.WriteLine("Hello");
       foreach(var newItem in myItems)
       {
         var dbItemMatch =_db.Items.FirstOrDefault(dbItem => dbItem.ItemId == newItem.ItemId);
@@ -60,15 +62,16 @@ namespace Shoplister.Controllers
       var currentUser = await _userManager.FindByIdAsync(userId);
       item.User = currentUser;
 
-      if (_db.Items.Where(dbItem => dbItem.ItemName == item.ItemName && dbItem.Checked == true).Any() == true) {
-        //set checked to false
-        _db.SaveChanges();
+      var dbItemMatch =_db.Items.FirstOrDefault(dbItem => dbItem.ItemName == item.ItemName);
+      if(dbItemMatch != null)
+      {
+        dbItemMatch.Checked = false; 
       }
       else
       {
         _db.Items.Add(item);
-        _db.SaveChanges();
       }
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
