@@ -3,7 +3,7 @@
 }
 
 @using Shoplister.Models;
-@model IEnumerable<Shoplister.Models.Item>
+@model List<Shoplister.Models.Item>
 
 @if (Model.Any())
 {
@@ -11,29 +11,29 @@
   @using (Html.BeginForm())
   {
   <ul>
-    @foreach (Item item in Model)
+    @for(int i = 0; i < Model.Count; i++)
     {
-      @if (item.Checked == false)
+      @if (Model[i].Checked == false)
       {
         <li>
-          @Html.HiddenFor(x => item.ItemId)
-          @Html.DisplayFor(x => item.ItemName)
-          @Html.DisplayFor(x => item.Notes)
-          @Html.CheckBoxFor(x => item.Checked)
+          @Html.HiddenFor(x => x[i].ItemId)
+          @Html.DisplayFor(x => x[i].ItemName)
+          @Html.DisplayFor(x => x[i].Notes)
+          @Html.CheckBoxFor(x => x[i].Checked)
         </li>
       }
     }
   </ul>
   <h1>Checked Items:</h1>
   <ul>
-    @foreach (Item item in Model)
+    @for(int i = 0; i < Model.Count; i++)
     {
-      @if (item.Checked == true)
+      @if (Model[i].Checked == true)
       {
         <li>
-          @Html.HiddenFor(x => item.ItemId)
-          @Html.DisplayFor(x => item.ItemName)
-          @Html.CheckBoxFor(x => item.Checked)
+          @Html.HiddenFor(x => x[i].ItemId)
+          @Html.DisplayFor(x => x[i].ItemName)
+          @Html.CheckBoxFor(x => x[i].Checked)
         </li>
       }
     }

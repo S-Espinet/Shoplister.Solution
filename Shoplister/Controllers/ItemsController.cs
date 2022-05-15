@@ -30,13 +30,12 @@ namespace Shoplister.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userItems = _db.Items.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userItems.OrderBy(item => item.ItemName));
+      return View(userItems.OrderBy(item => item.ItemName).ToList());
     }
 
     [HttpPost]
     public ActionResult Index (List<Item> myItems)
     {
-      Console.WriteLine("Hello");
       foreach(var newItem in myItems)
       {
         var dbItemMatch =_db.Items.FirstOrDefault(dbItem => dbItem.ItemId == newItem.ItemId);
@@ -62,7 +61,7 @@ namespace Shoplister.Controllers
       var currentUser = await _userManager.FindByIdAsync(userId);
       item.User = currentUser;
 
-      var dbItemMatch =_db.Items.FirstOrDefault(dbItem => dbItem.ItemName == item.ItemName);
+      var dbItemMatch =_db.Items.FirstOrDefault(dbItem => (dbItem.ItemName == item.ItemName) && (dbItem.User == item.User));
       if(dbItemMatch != null)
       {
         dbItemMatch.Checked = false; 
