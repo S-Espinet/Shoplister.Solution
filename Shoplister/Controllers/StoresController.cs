@@ -45,13 +45,38 @@ namespace Shoplister.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       store.User = currentUser;
-      if (_db.Stores.Where(dbStore => dbStore.StoreName == store.StoreName).Any() == false)
+
+      var dbStoreMatch =_db.Stores.FirstOrDefault(dbStore => (dbStore.StoreName == store.StoreName) && (dbStore.User == store.User));
+      if(dbStoreMatch == null)
       {
         _db.Stores.Add(store);
-        _db.SaveChanges();
       }
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
+    
+    public ActionResult Edit(int id)
+    {
+      var thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
+      return View(thisStore);
+    }
+
+    [HttpPost]
+    public ActionResult Edit (Store store)
+    {
+      _db.Entry(store).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+
+    public ActionResult Delete(int id)
+    {
+      var thisStore = _db.Stores.FirstOrDefault(dbStore => dbStore.StoreId == id);
+      _db.Stores.Remove(thisStore);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
