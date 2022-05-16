@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Shoplister.Models.Store
+
+<h2>Add a New Store</h2>
+<hr>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.StoreName)
+  @Html.TextBoxFor(model => model.StoreName, new { required = "required"})
+  <input type="submit" value="Add New Store" class="btn btn-light" />
+}

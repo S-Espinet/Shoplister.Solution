@@ -11,6 +11,7 @@ namespace Shoplister.Models
 
     public int StoreId { get; set; }
     public string StoreName { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public virtual ICollection<ItemStore> JoinEntities { get; set; }
   }
 }

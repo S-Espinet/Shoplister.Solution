@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Shoplister.Models;
+@model List<Shoplister.Models.Store>;
+
+<h2>Stores</h2>
+<hr>
+
+@if (@Model.Count == 0)
+{
+  <h3>You haven't added any stores yet!</h3>
+}
+
+@foreach (Store store in Model)
+{
+  <li>@Html.ActionLink($"{store.StoreName}", "Edit", new { id = store.StoreId })</li>
+}
+<br>
+<button class="btn-light">@Html.ActionLink("Add New Store", "Create")</button>
