@@ -4,7 +4,7 @@ namespace Shoplister.Models
   {       
     public int ItemStoreId { get; set; }
     public int ItemId { get; set; }
-    public int CategoryId { get; set; }
+    public int StoreId { get; set; }
     public virtual Item Item { get; set; }
     public virtual Store Store { get; set; }
   }

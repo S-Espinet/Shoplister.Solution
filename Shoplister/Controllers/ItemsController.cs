@@ -84,10 +84,45 @@ namespace Shoplister.Controllers
     [HttpPost]
     public ActionResult Edit (Item item)
     {
+      Console.WriteLine("World");
       _db.Entry(item).State = EntityState.Modified;
+      Console.WriteLine(item);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
+
+    public ActionResult Delete(int id)
+    {
+      Console.WriteLine("Hello");
+      Console.WriteLine(id);
+      var thisItem = _db.Items.FirstOrDefault(dbItem => dbItem.ItemId == id);
+      Console.WriteLine(thisItem.ItemId);
+      // Console.WriteLine(thisItem);
+      _db.Items.Remove(thisItem);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+
+    public ActionResult AddStore (int id)
+    {
+      var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      ViewBag.StoreId = new SelectList(_db.Stores, "StoreId", "StoreName");
+      return View(thisItem);
+    }
+
+    [HttpPost]
+    public ActionResult AddStore (Item item, int StoreId)
+    {
+      if (StoreId != 0 && _db.ItemStore
+          .Where(dbItemStore => dbItemStore.StoreId == StoreId && dbItemStore.ItemId == item.ItemId)
+          .Any() == false)
+      {
+        _db.ItemStore.Add(new ItemStore() { StoreId = StoreId, ItemId = item.ItemId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
   }
 }

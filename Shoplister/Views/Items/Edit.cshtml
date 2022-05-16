@@ -12,7 +12,6 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ItemId)
-
   @Html.LabelFor(model => model.ItemName)
   @Html.EditorFor(model => model.ItemName, new {require = "required"})
   @Html.LabelFor(model => model.Notes)
@@ -20,3 +19,5 @@
 
   <input type="submit" class="btn btn-light" value="Save" />
 }
+<button class="btn-light">@Html.ActionLink("Assign a Store", "AddStore", new { id = Model.ItemId })</button>
+<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>

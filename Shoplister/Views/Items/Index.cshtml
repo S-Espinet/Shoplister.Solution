@@ -17,7 +17,7 @@
       {
         <li>
           @Html.HiddenFor(x => x[i].ItemId)
-          @Html.DisplayFor(x => x[i].ItemName)
+          @Html.ActionLink(Model[i].ItemName, "Edit", new { id = Model[i].ItemId })
           @Html.DisplayFor(x => x[i].Notes)
           @Html.CheckBoxFor(x => x[i].Checked)
         </li>
@@ -38,7 +38,7 @@
       }
     }
   </ul>
-  <input type="submit" value="Save" />
+  <input type="submit" value="Check/Uncheck" />
   }
 }
 else
