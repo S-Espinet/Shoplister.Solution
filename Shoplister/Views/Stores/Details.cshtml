@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+
+
+
+
+@model Shoplister.Models.Store 
+
+<h1>@Html.DisplayNameFor(model => model.StoreName): @Html.DisplayFor(model => model.StoreName)</h1>
+@if (Model.JoinEntities.Any())
+{
+  <h2>Items to get at this store: </h2>
+  @using (Html.BeginForm("DeleteItem", "Store"))
+  {  
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      @if (Model.JoinEntities.Where(x => x.Item.Checked == false).Any())
+      {
+        <li>
+          @Html.HiddenFor(x => join.ItemStoreId)
+          @Html.ActionLink(join.Item.ItemName, "Edit", "Items", new { id = join.Item.ItemId }) || <input type="submit" value="Delete" style="font-size:.6em; padding:.25em" class="btn btn-xs btn-dark" /> 
+          @Html.CheckBoxFor(x => join.Item.Checked)
+          @Html.DisplayFor(x => join.Item.Notes)
+        </li>
+        }
+      }
+      </ul>
+    <h2>Checked Off Items:</h2>
+    <ul>
+      @* @using (Html.BeginForm("DeleteItem", "Store")) *@
+      @foreach(var join in Model.JoinEntities)
+          {
+            @if (Model.JoinEntities.Where(x =>x.Item.Checked == true).Any())
+            {
+              <li>
+                @Html.HiddenFor(x => join.ItemStoreId);
+                @join.Item.ItemName || <input type="submit" value="Delete" style="font-size:.6em; padding:.25em" class="btn btn-xs btn-dark" /> 
+              @Html.CheckBoxFor(x => join.Item.Checked)
+              @Html.DisplayFor(x => join.Item.Notes)
+              </li>
+          }
+        }
+    </ul>   
+  <input type="submit" value="Check/Uncheck" />
+  }
+}
+else
+{
+  <h3>No items have been assigned to this store.</h3>
+}
+
+<button class="btn-light">@Html.ActionLink("Add an Item", "AddItem", new { id = Model.StoreId })</button>

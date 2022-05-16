@@ -78,5 +78,52 @@ namespace Shoplister.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+
+    public ActionResult Details(int id)
+    {
+      var thisStore = _db.Stores
+        .Include(store => store.JoinEntities)
+        .ThenInclude(join => join.Store)
+        .FirstOrDefault(store => store.StoreId == id);
+      return View(thisStore);
+    }
+
+    // [HttpPost]
+    // public ActionResult Details()
+    // {
+    //   return RedirectToAction("Details");
+    // }
+
+
+    // public ActionResult AddItem (int id)
+    // {
+    //   var thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
+    //   ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "ItemName");
+    //   return View(thisStore);
+    // }
+    
+    // [HttpPost]
+    // public ActionResult AddItem (Store store, int ItemId)
+    // {
+    //   if (ItemId != 0 && _db.ItemStore
+    //     .Where(dbItemStore => dbItemStore.ItemId == ItemId && dbItemStore.StoreId == store.StoreId)
+    //     .Any())
+    //   {
+    //     _db.ItemStore.Add(new ItemStore() { ItemId = ItemId, StoreId = store.StoreId });
+    //     _db.SaveChanges();
+    //   }
+    //   return RedirectToAction("Details", new{ id = store.StoreId});
+    // }
+
+
+    [HttpPost]
+    public ActionResult DeleteItem(int joinId)
+    {
+      var joinEntry = _db.ItemStore.FirstOrDefault(entry => entry.ItemStoreId == joinId);
+      _db.ItemStore.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Stores", new {id = joinEntry.StoreId});
+    }
   }
 }

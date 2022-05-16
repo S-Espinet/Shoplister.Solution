@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Shoplister.Models.Store
+
+<h4>Assign an item to this store: @Html.DisplayFor(model => model.StoreName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StoreId)
+
+  @Html.Label("Select Item")
+  @Html.DropDownList("ItemId")
+
+  <input type="submit" class="btn btn-light" value="Save" />
+}
