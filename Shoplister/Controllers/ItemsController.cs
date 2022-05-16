@@ -84,9 +84,7 @@ namespace Shoplister.Controllers
     [HttpPost]
     public ActionResult Edit (Item item)
     {
-      Console.WriteLine("World");
       _db.Entry(item).State = EntityState.Modified;
-      Console.WriteLine(item);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -94,11 +92,7 @@ namespace Shoplister.Controllers
 
     public ActionResult Delete(int id)
     {
-      Console.WriteLine("Hello");
-      Console.WriteLine(id);
       var thisItem = _db.Items.FirstOrDefault(dbItem => dbItem.ItemId == id);
-      Console.WriteLine(thisItem.ItemId);
-      // Console.WriteLine(thisItem);
       _db.Items.Remove(thisItem);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -122,6 +116,16 @@ namespace Shoplister.Controllers
         _db.ItemStore.Add(new ItemStore() { StoreId = StoreId, ItemId = item.ItemId });
         _db.SaveChanges();
       }
+      return RedirectToAction("Index");
+    }
+
+
+    [HttpPost]
+    public ActionResult DeleteStore(int joinId)
+    {
+      var joinEntry = _db.ItemStore.FirstOrDefault(entry => entry.ItemStoreId == joinId);
+      _db.ItemStore.Remove(joinEntry);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
   }
