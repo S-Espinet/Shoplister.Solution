@@ -80,20 +80,36 @@ namespace Shoplister.Controllers
     }
 
 
+    // public ActionResult Details(int id)
+    // {
+    //   var thisStore = _db.Stores
+    //     .Include(store => store.JoinEntities)
+    //     .FirstOrDefault(store => store.StoreId == id);
+    //   return View(thisStore);
+    // }
+
     public ActionResult Details(int id)
     {
       var thisStore = _db.Stores
         .Include(store => store.JoinEntities)
-        .ThenInclude(join => join.Store)
         .FirstOrDefault(store => store.StoreId == id);
-      return View(thisStore);
+      return View(thisStore.JoinEntities.ToList());
     }
 
-    // [HttpPost]
-    // public ActionResult Details()
-    // {
-    //   return RedirectToAction("Details");
-    // }
+    [HttpPost]
+    public ActionResult Details(List<ItemStore> storesItems)
+    {
+      foreach(var newItem in storesItems)
+      {
+        var dbItemMatch =_db.Items.FirstOrDefault(dbItem => dbItem.ItemId == newItem.ItemId);
+        if(dbItemMatch != null)
+        {
+          dbItemMatch.Checked = newItem.Item.Checked; 
+        }    
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Details");
+    }
 
 
     // public ActionResult AddItem (int id)

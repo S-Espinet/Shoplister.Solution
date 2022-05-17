@@ -6,44 +6,44 @@
 
 
 
-@model Shoplister.Models.Store 
+@model List<Shoplister.Models.ItemStore> 
 
-<h1>@Html.DisplayNameFor(model => model.StoreName): @Html.DisplayFor(model => model.StoreName)</h1>
-@if (Model.JoinEntities.Any())
+<h1>@Html.DisplayName(Model.FirstOrDefault().Store.StoreName): @Html.Display(Model.FirstOrDefault().Store.StoreName)</h1>
+@if (Model.Any())
 {
   <h2>Items to get at this store: </h2>
-  @using (Html.BeginForm("DeleteItem", "Store"))
+  @using (Html.BeginForm())
   {  
   <ul>
-    @foreach(var join in Model.JoinEntities)
+    @for(int i = 0; i < Model.Count; i++)
     {
-      @if (Model.JoinEntities.Where(x => x.Item.Checked == false).Any())
+      @if (Model[i].Item.Checked == false)
       {
         <li>
-          @Html.HiddenFor(x => join.ItemStoreId)
-          @Html.ActionLink(join.Item.ItemName, "Edit", "Items", new { id = join.Item.ItemId }) || <input type="submit" value="Delete" style="font-size:.6em; padding:.25em" class="btn btn-xs btn-dark" /> 
-          @Html.CheckBoxFor(x => join.Item.Checked)
-          @Html.DisplayFor(x => join.Item.Notes)
+          @Html.HiddenFor(x => x[i].ItemId)
+          @Html.ActionLink(Model[i].Item.ItemName, "Edit", "Items", new { id = Model[i].Item.ItemId })
+          @Html.CheckBoxFor(x => x[i].Item.Checked)
+          @Html.DisplayFor(x => x[i].Item.Notes)
         </li>
-        }
       }
-      </ul>
-    <h2>Checked Off Items:</h2>
-    <ul>
-      @* @using (Html.BeginForm("DeleteItem", "Store")) *@
-      @foreach(var join in Model.JoinEntities)
-          {
-            @if (Model.JoinEntities.Where(x =>x.Item.Checked == true).Any())
-            {
-              <li>
-                @Html.HiddenFor(x => join.ItemStoreId);
-                @join.Item.ItemName || <input type="submit" value="Delete" style="font-size:.6em; padding:.25em" class="btn btn-xs btn-dark" /> 
-              @Html.CheckBoxFor(x => join.Item.Checked)
-              @Html.DisplayFor(x => join.Item.Notes)
-              </li>
-          }
-        }
-    </ul>   
+    }
+  </ul>
+  <h2>Checked Off Items:</h2>
+  <ul>
+    @for(int i = 0; i < Model.Count; i++)
+    {
+      @if (Model[i].Item.Checked == true)
+      {
+        <li>
+          @Html.HiddenFor(x => x[i].ItemId)
+          @Html.HiddenFor(x => x[i].ItemStoreId)
+          @Model[i].Item.ItemName
+          @Html.CheckBoxFor(x => x[i].Item.Checked)
+          @Html.DisplayFor(x => x[i].Item.Notes)
+        </li>
+      }
+    }
+  </ul>   
   <input type="submit" value="Check/Uncheck" />
   }
 }
@@ -52,4 +52,4 @@ else
   <h3>No items have been assigned to this store.</h3>
 }
 
-<button class="btn-light">@Html.ActionLink("Add an Item", "AddItem", new { id = Model.StoreId })</button>
+@* <button class="btn-light">@Html.ActionLink("Add an Item", "AddItem", new { id = Model.StoreId })</button> *@
