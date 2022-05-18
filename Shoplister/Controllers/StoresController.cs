@@ -133,13 +133,13 @@ namespace Shoplister.Controllers
     // }
 
 
-    [HttpPost]
-    public ActionResult DeleteItem(int joinId)
-    {
-      var joinEntry = _db.ItemStore.FirstOrDefault(entry => entry.ItemStoreId == joinId);
-      _db.ItemStore.Remove(joinEntry);
-      _db.SaveChanges();
-      return RedirectToAction("Details", "Stores", new {id = joinEntry.StoreId});
-    }
+    // [HttpPost]
+    // public ActionResult DeleteItem(int joinId)
+    // {
+    //   var joinEntry = _db.ItemStore.FirstOrDefault(entry => entry.ItemStoreId == joinId);
+    //   _db.ItemStore.Remove(joinEntry);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Details", "Stores", new {id = joinEntry.StoreId});
+    // }
   }
 }
