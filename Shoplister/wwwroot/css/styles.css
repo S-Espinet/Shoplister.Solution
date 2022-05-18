@@ -1,12 +1,9 @@
 #header {
   margin-bottom: 20px;
   position:relative;
-  top:0px;
-  left:0px;
-  width:100%;
-  color:#CCC;
   background-image: url("https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
   padding:40px;
+  text-align: center;
 }
 
 body {
@@ -24,8 +21,6 @@ a {
   font-family: cursive;
   border-radius: 25px;
   background-image: linear-gradient(120deg, #55e9d3 0%, #6cd28b 100%);
-  /* background-repeat: no-repeat;
-  background-size: cover; */
   text-shadow: 3px 3px 3px #fb7883;
   padding: 8%;
 }
@@ -40,10 +35,6 @@ h1 {
   text-shadow: none;
 }
 
-#header {
-  text-align: center;
-}
-
 .card {
   text-align: center;
   background-color: white;
@@ -52,7 +43,6 @@ h1 {
 
 li {
   list-style-position: inside;
-  color: blue;
 }
 
 .button-div {
@@ -81,13 +71,23 @@ li {
   clear: both;
 }
 
-.container-login {
+.container-form {
   width: 25%;
   clear: both;
   font-weight: bold;
 }
 
-.container-login input {
+.container-form input {
   width: 100%;
   clear: both;
+}
+
+.checked {
+  color: black;
+  font-size: 1.35em;
+}
+
+input.checkbox-size {
+  width: 20px;
+  height: 20px;
 }

@@ -4,15 +4,18 @@
 
 @model Shoplister.Models.Item
 
-<h4>Add a New Item</h4>
+<h2>Add a New Item</h2>
 <hr>
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.ItemName)
-  @Html.TextBoxFor(model => model.ItemName, new { required = "required"})
-  <br />
-  @Html.LabelFor(model => model.Notes)
-  @Html.TextBoxFor(model => model.Notes)
-  <input type="submit" value="Add New Item" class="btn btn-light" />
+  <div class="container-form">
+    @Html.LabelFor(model => model.ItemName):
+    @Html.TextBoxFor(model => model.ItemName, new { required = "required"})
+    @Html.LabelFor(model => model.Notes):
+    @Html.TextBoxFor(model => model.Notes)
+    <br>
+    <br>
+  </div>
+  <input type="submit" value="Add New Item" class="btn btn-success" style="color: blue" />
 }
