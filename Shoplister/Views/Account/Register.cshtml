@@ -6,21 +6,35 @@
 
 @model RegisterViewModel
 
-<h2>Register an Account</h2>
+<h2>Register a New Account</h2>
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    @Html.LabelFor(user => user.UserName)
-    @Html.TextBoxFor(user=> user.UserName) 
-
-    @Html.LabelFor(user=> user.Password)
-    @Html.PasswordFor(user=> user.Password)
-
-    @Html.LabelFor(user=> user.ConfirmPassword)
-    @Html.PasswordFor(user=> user.ConfirmPassword)
-
-    <p>UserName: no spaces</p>
-    <p>Password: at least 6 character, 1 capital letter, 1 number, and 1 special character</p>
-
-    <input type="submit" class="btn btn-dark" value="Register" />
+  <div class="container-columns">
+    <div class="row">
+      <div class="col-sm">
+        <div class="container-register">
+          @Html.LabelFor(user => user.UserName)
+          @Html.TextBoxFor(user=> user.UserName) 
+          <br>
+          @Html.LabelFor(user=> user.Password)
+          @Html.PasswordFor(user=> user.Password)
+          <br>
+          @Html.LabelFor(user=> user.ConfirmPassword)
+          @Html.PasswordFor(user=> user.ConfirmPassword)
+          <br>
+          <br>
+        </div>
+      </div>
+      <div class="col-sm">
+        <h5>Registration Instructions:</h5>
+        <p><em>UserName: no spaces</em></p>
+        <p><em>Password: at least 6 character, 1 capital letter, 1 number, and 1 special character</em></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-div">
+    <input style="color: blue" type="submit" class="btn btn-success" value="Register" />
+  </div>
 }

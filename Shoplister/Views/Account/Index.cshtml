@@ -4,15 +4,28 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
+  <h3>Hello @User.Identity.Name!</h3>
+  <h6>You have successfully logged in. Please use the header to view your list, or you can click the button below to log out.</h6>
+  <br>
+  <br>
 
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <input type="submit" class ="btn btn-dark" value="Log out" />
+    <div class="button-div">
+      <input style="color: blue" type="submit" class ="btn btn-success" value="Log Out" />
+    </div>
+
   }
 }
 else
 {
-  <button class="btn-dark">@Html.ActionLink("Register", "Register")</button>
-  <button class="btn-dark">@Html.ActionLink("Log in", "Login")</button>
+  <div class="button-div">
+    <button class="btn-success">@Html.ActionLink("Register", "Register")</button>
+    <br>
+    <br>
+    <button class="btn-success">@Html.ActionLink("Log In", "Login")</button>
+  </div>
+  <br>
+  <br>
+  <h5>Please log in or register for an account.</h5>
 }
