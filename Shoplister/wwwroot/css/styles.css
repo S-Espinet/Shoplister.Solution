@@ -1,4 +1,5 @@
-div#header {
+#header {
+  margin:0px;
   position:relative;
   top:0px;
   left:0px;
@@ -18,19 +19,22 @@ a {
 }
 
 .jumbotron {
+  margin-top: 20px;
   text-align: center;
-  text-decoration-line: underline;
+  
   font-weight: bold;
   font-family: cursive;
   border-radius: 25px;
   background-image: linear-gradient(120deg, #55e9d3 0%, #6cd28b 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   text-shadow: 3px 3px 3px #fb7883;
+  padding: 8%;
 }
 
 h1 {
   font-size: 3.5em;
+  text-decoration-line: underline;
 }
 
 .subtitle {
