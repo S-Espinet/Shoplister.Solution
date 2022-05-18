@@ -1,5 +1,5 @@
 #header {
-  margin:0px;
+  margin-bottom: 20px;
   position:relative;
   top:0px;
   left:0px;
@@ -19,9 +19,7 @@ a {
 }
 
 .jumbotron {
-  margin-top: 20px;
   text-align: center;
-  
   font-weight: bold;
   font-family: cursive;
   border-radius: 25px;
@@ -54,10 +52,12 @@ h1 {
 
 li {
   list-style-position: inside;
+  color: blue;
 }
 
 .button-div {
   font-size: 20px;
+  color:blue;
 }
 
 .btn-warning {
@@ -68,4 +68,26 @@ li {
 #footer {
   position:absolute;
   bottom:0px;
+}
+
+.container-register {
+  width: 75%;
+  clear: both;
+  font-weight: bold;
+}
+
+.container-register input {
+  width: 100%;
+  clear: both;
+}
+
+.container-login {
+  width: 25%;
+  clear: both;
+  font-weight: bold;
+}
+
+.container-login input {
+  width: 100%;
+  clear: both;
 }

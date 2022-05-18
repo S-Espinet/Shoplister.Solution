@@ -10,13 +10,18 @@
 <hr />
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.UserName)
-  @Html.TextBoxFor(m => m.UserName)
+  <div class="container-login">
+    @Html.LabelFor(m => m.UserName):
+    @Html.TextBoxFor(m => m.UserName)
 
-  @Html.LabelFor(m => m.Password)
-  @Html.PasswordFor(m => m.Password)
-
-  <input type="submit" value="Log In" class="btn btn-dark" />
-  <p>-OR-</p>
-  <button class="btn btn-dark">@Html.ActionLink("Register for an Account", "Register", "Account")</button>
+    @Html.LabelFor(m => m.Password):
+    @Html.PasswordFor(m => m.Password)
+  </div>
+  <br>
+  <div class="button-div">
+    <input style="color: blue" type="submit" value="Log In" class="btn btn-success" />
+    <br>
+    <br>
+    <button class="btn btn-success">@Html.ActionLink("Register", "Register", "Account")</button>
+  </div>
 }
