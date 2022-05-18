@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+    @await Html.PartialAsync("Header")
     <div class="container">
-      @await Html.PartialAsync("Header")
       @RenderBody()
       @await Html.PartialAsync("Footer")
     </div>
