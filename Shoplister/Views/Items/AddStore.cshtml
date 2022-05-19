@@ -4,18 +4,20 @@
 
 @model Shoplister.Models.Item
 
-<h2>Assign a Store For: @Html.DisplayFor(model => model.ItemName)</h2>
+<h2>Assign a Store For: &nbsp; @Html.DisplayFor(model => model.ItemName)</h2>
 <hr />
 
 @using (Html.BeginForm())
 {
   <div class="container-form">
     @Html.HiddenFor(model => model.ItemId)
-    @Html.Label("Select Store"):  
+    @Html.Label("Select Store"): &nbsp;
     @Html.DropDownList("StoreId")
     <br>
     <br>
 </div>  
 
-  <input style="color: blue" type="submit" class="btn btn-success" value="Save" />
+  <div class="button-div">
+    <input style="color: blue; font-size: 1.2em;" type="submit" class="btn btn-success" value="Save" />
+  </div>
 }

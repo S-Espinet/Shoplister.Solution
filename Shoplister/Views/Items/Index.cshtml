@@ -20,9 +20,9 @@
               {  
                 <li>
                   @Html.HiddenFor(x => x[i].ItemId)
-                  @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" })
-                  @Html.ActionLink(Model[i].ItemName, "Edit", new { id = Model[i].ItemId }, new { @style="font-size: 1.35em;" }) - 
-                  Notes: @Html.DisplayFor(x => x[i].Notes)
+                  @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" }) &nbsp;
+                  @Html.ActionLink(Model[i].ItemName, "Edit", new { id = Model[i].ItemId }, new { @style="font-size: 1.35em; vertical-align: middle;" })
+                  <span style="vertical-align: middle;"> - Notes: @Html.DisplayFor(x => x[i].Notes)</span>
                 </li>                
               }
             }
@@ -40,8 +40,8 @@
                 <div class="checked">
                   <li>
                     @Html.HiddenFor(x => x[i].ItemId)
-                    @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" })
-                    @Html.DisplayFor(x => x[i].ItemName)
+                    @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" }) &nbsp;
+                    <span style="vertical-align: middle;">@Html.DisplayFor(x => x[i].ItemName, new { @style="font-size: 1.35em;" })</span>
                   </li>
                 </div>
               }
@@ -50,43 +50,13 @@
         </div>
       </div>
     </div>
-  <input class="btn btn-success" style="color: blue" type="submit" value="Check/Uncheck" />
+  <input class="btn btn-success" style="color: blue; font-size: 1.2em;" type="submit" value="Check/Uncheck" />
   <br>
   <br>
   }
 }
 else
 {
-  <h3>No items have been added yet!</h3>
+  <h3>No items have been added yet.</h3>
 }
-
-<button class="btn btn-success">@Html.ActionLink("Add New Item", "Create")</button>
-
-
-@* @model List<ToDoList.Models.Item>;
-
-<h1>Items</h1>
-
-@if (@Model.Count == 0)
-{
-  <h3>No items have been added yet!</h3>
-}
-@using (Html.BeginForm())
-{
-<ul>
-  @for(int i = 0; i < Model.Count; i++)
-  {
-    <li>
-        @Html.HiddenFor(x => x[i].ItemId)
-        @Html.HiddenFor(x => x[i].Description)
-        @Html.CheckBoxFor(x => x[i].Completed)
-        @Html.ActionLink($"{Model[i].Description}", "Details", new { id = Model[i].ItemId })
-    </li>
-  }
-</ul>
-
-  <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+<button style="font-size: 1.2em;" class="btn btn-success">@Html.ActionLink("Add New Item", "Create")</button>

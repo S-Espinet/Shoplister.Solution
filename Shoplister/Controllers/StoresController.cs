@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +57,9 @@ namespace Shoplister.Controllers
     
     public ActionResult Edit(int id)
     {
+      Console.WriteLine(id);
       var thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
+      Console.WriteLine(thisStore.StoreName);
       return View(thisStore);
     }
 
@@ -79,14 +80,6 @@ namespace Shoplister.Controllers
       return RedirectToAction("Index");
     }
 
-
-    // public ActionResult Details(int id)
-    // {
-    //   var thisStore = _db.Stores
-    //     .Include(store => store.JoinEntities)
-    //     .FirstOrDefault(store => store.StoreId == id);
-    //   return View(thisStore);
-    // }
 
     public ActionResult Details(int id)
     {
@@ -110,36 +103,5 @@ namespace Shoplister.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details");
     }
-
-
-    // public ActionResult AddItem (int id)
-    // {
-    //   var thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
-    //   ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "ItemName");
-    //   return View(thisStore);
-    // }
-    
-    // [HttpPost]
-    // public ActionResult AddItem (Store store, int ItemId)
-    // {
-    //   if (ItemId != 0 && _db.ItemStore
-    //     .Where(dbItemStore => dbItemStore.ItemId == ItemId && dbItemStore.StoreId == store.StoreId)
-    //     .Any())
-    //   {
-    //     _db.ItemStore.Add(new ItemStore() { ItemId = ItemId, StoreId = store.StoreId });
-    //     _db.SaveChanges();
-    //   }
-    //   return RedirectToAction("Details", new{ id = store.StoreId});
-    // }
-
-
-    // [HttpPost]
-    // public ActionResult DeleteItem(int joinId)
-    // {
-    //   var joinEntry = _db.ItemStore.FirstOrDefault(entry => entry.ItemStoreId == joinId);
-    //   _db.ItemStore.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Details", "Stores", new {id = joinEntry.StoreId});
-    // }
   }
 }

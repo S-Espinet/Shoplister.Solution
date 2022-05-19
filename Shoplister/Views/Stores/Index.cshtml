@@ -15,7 +15,7 @@
 
 @foreach (Store store in Model)
 {
-  <li>@Html.ActionLink($"{store.StoreName}", "Details", new { id = store.StoreId })</li>
+  <li>@Html.ActionLink($"{store.StoreName}", "Details", new { id = store.StoreId }, new { @style="font-size: 1.35em;" })</li>
 }
 <br>
-<button class="btn-light">@Html.ActionLink("Add New Store", "Create")</button>
+<button style="font-size: 1.2em;" class="btn btn-success">@Html.ActionLink("Add New Store", "Create")</button>
