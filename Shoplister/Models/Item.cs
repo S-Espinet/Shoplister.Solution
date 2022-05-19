@@ -12,6 +12,8 @@ namespace Shoplister.Models
     public int ItemId { get; set; }
     public string ItemName { get; set; }
     public string Notes { get; set; }
+
+    public string ProductType { get; set; }
     public bool Checked { get; set; } = false;
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<ItemStore> JoinEntities { get; }
