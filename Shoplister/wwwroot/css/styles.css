@@ -45,11 +45,6 @@ li {
   list-style-position: inside;
 }
 
-.button-div {
-  font-size: 20px;
-  color:blue;
-}
-
 .btn-warning {
   margin-left: 8px;
   margin-right: 8px;
@@ -85,9 +80,16 @@ li {
 .checked {
   color: black;
   font-size: 1.35em;
+  position: relative;
 }
 
 input.checkbox-size {
   width: 20px;
   height: 20px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.store-name {
+  text-decoration-line: underline;
 }

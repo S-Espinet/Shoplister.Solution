@@ -11,20 +11,15 @@
 
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <div class="button-div">
-      <input style="color: blue" type="submit" class ="btn btn-success" value="Log Out" />
-    </div>
-
+    <input style="color: blue; font-size: 1.2em;" type="submit" class ="btn btn-success" value="Log Out" />
   }
 }
 else
 {
-  <div class="button-div">
-    <button class="btn-success">@Html.ActionLink("Register", "Register")</button>
+    <button style="font-size: 1.2em;" class="btn btn-success">@Html.ActionLink("Register", "Register")</button>
     <br>
     <br>
-    <button class="btn-success">@Html.ActionLink("Log In", "Login")</button>
-  </div>
+    <button style="font-size: 1.2em;" class="btn btn-success">@Html.ActionLink("Log In", "Login")</button>
   <br>
   <br>
   <h5>Please log in or register for an account.</h5>

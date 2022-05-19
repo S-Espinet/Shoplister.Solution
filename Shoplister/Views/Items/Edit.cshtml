@@ -4,7 +4,7 @@
 
 @model Shoplister.Models.Item
 
-<h2>Edit</h2>
+<h2>Edit This Item</h2>
 <hr>
 
 @using (Html.BeginForm())
@@ -18,13 +18,11 @@
   </div>
   <br>
   <br>
-  <input style="color: blue" type="submit" class="btn btn-success" value="Save" />
+  <input style="color: blue; font-size: 1.2em;" type="submit" class="btn btn-success" value="Save" />
   <br>
   <br>
 }
-<div class="button-div">
-  <button class="btn btn-success">@Html.ActionLink("Assign a Store", "AddStore", new { id = Model.ItemId })</button>
+  <button style="font-size: 1.2em;" class="btn btn-success">@Html.ActionLink("Assign a Store", "AddStore", new { id = Model.ItemId })</button>
   <br>
   <br>
-  <button style="color: black" class="btn btn-danger">@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</button>
-</div>
+  <button style="color: black; font-size: 1.2em;" class="btn btn-danger">@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</button>

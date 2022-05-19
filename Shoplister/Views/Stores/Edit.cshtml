@@ -4,18 +4,19 @@
 
 @model Shoplister.Models.Store
 
-<h2>Edit</h2>
-<hr>
 
-<h4>Edit this store: @Html.DisplayFor(model => model.StoreName)</h4>
-
+<h2>Edit This Store</h2>
+<hr />
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.StoreId)
-  @Html.LabelFor(model => model.StoreName)
-  @Html.EditorFor(model => model.StoreName, new {require = "required"})
+  <div class="container-form">
+    @Html.HiddenFor(model => model.StoreId)
+    @Html.LabelFor(model => model.StoreName):
+    @Html.EditorFor(model => model.StoreName, new {require = "required"})
+  </div>
+  <br>
+  <br>
 
-  <input type="submit" class="btn btn-light" value="Save" />
+  <input style="color: blue; font-size: 1.2em;" type="submit" class="btn btn-success" value="Save" />
 }
-<button class="btn-light">@Html.ActionLink("Assign an Item", "AddItem", new { id = Model.StoreId })</button>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.StoreId })</p>
+
