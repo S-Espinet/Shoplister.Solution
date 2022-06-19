@@ -20,7 +20,6 @@
               {  
                 <li>
                   @Html.HiddenFor(x => x[i].ItemId)
-                  @Html.HiddenFor(x => x[i].ProductType)
                   @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" }) &nbsp;
                   @Html.ActionLink(Model[i].ItemName, "Edit", new { id = Model[i].ItemId }, new { @style="font-size: 1.35em; vertical-align: middle;" })
                   <span style="vertical-align: middle;"> - Notes: @Html.DisplayFor(x => x[i].Notes)</span>
@@ -41,7 +40,6 @@
                 <div class="checked">
                   <li>
                     @Html.HiddenFor(x => x[i].ItemId)
-                    @Html.HiddenFor(x => x[i].ProductType)
                     @Html.CheckBoxFor(x => x[i].Checked, new { @class="checkbox-size" }) &nbsp;
                     <span style="vertical-align: middle;">@Html.DisplayFor(x => x[i].ItemName, new { @style="font-size: 1.35em;" })</span>
                   </li>
