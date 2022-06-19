@@ -55,7 +55,7 @@ namespace Shoplister.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Item item)
+    public async Task<ActionResult> Create(Item item, int StoreId)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
