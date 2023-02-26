@@ -48,19 +48,6 @@ namespace Shoplister.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stores",
-                columns: table => new
-                {
-                    StoreId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    StoreName = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Stores", x => x.StoreId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -189,14 +176,33 @@ namespace Shoplister.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Stores",
+                columns: table => new
+                {
+                    StoreId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    StoreName = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    UserId = table.Column<string>(type: "varchar(255) CHARACTER SET utf8mb4", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stores", x => x.StoreId);
+                    table.ForeignKey(
+                        name: "FK_Stores_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ItemStore",
                 columns: table => new
                 {
                     ItemStoreId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    StoreId = table.Column<int>(type: "int", nullable: true)
+                    StoreId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -212,7 +218,7 @@ namespace Shoplister.Migrations
                         column: x => x.StoreId,
                         principalTable: "Stores",
                         principalColumn: "StoreId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -266,6 +272,11 @@ namespace Shoplister.Migrations
                 name: "IX_ItemStore_StoreId",
                 table: "ItemStore",
                 column: "StoreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stores_UserId",
+                table: "Stores",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

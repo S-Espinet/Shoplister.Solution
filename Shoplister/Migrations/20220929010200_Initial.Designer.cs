@@ -9,8 +9,8 @@ using Shoplister.Models;
 namespace Shoplister.Migrations
 {
     [DbContext(typeof(ShoplisterContext))]
-    [Migration("20220516005330_StoreId")]
-    partial class StoreId
+    [Migration("20220929010200_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -266,7 +266,12 @@ namespace Shoplister.Migrations
                     b.Property<string>("StoreName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
                     b.HasKey("StoreId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Stores");
                 });
@@ -348,6 +353,15 @@ namespace Shoplister.Migrations
                     b.Navigation("Item");
 
                     b.Navigation("Store");
+                });
+
+            modelBuilder.Entity("Shoplister.Models.Store", b =>
+                {
+                    b.HasOne("Shoplister.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Shoplister.Models.Item", b =>

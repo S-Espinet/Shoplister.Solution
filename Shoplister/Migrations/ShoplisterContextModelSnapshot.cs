@@ -224,9 +224,6 @@ namespace Shoplister.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("ProductType")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
