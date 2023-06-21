@@ -16,6 +16,10 @@ services:
     volumes:
       - datafiles:/var/lib/mysql
     restart: always
+    #Specify Environment Variables for mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: #password goes here
+      MYSQL_DATABASE: #database name goes here
   #Api  Service
   api:
     build:

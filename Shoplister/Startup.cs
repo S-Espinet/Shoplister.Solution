@@ -43,6 +43,11 @@ namespace Shoplister
 
     public void Configure(IApplicationBuilder app)
     {
+      using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+      {
+        var context = serviceScope.ServiceProvider.GetRequiredService<ShoplisterContext>();
+        context.Database.Migrate();
+      }
       app.UseDeveloperExceptionPage();
       app.UseAuthentication();
       app.UseRouting();
